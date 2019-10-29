@@ -27,6 +27,6 @@ dane wyjściowe: {uppercaseletters=[A], lowercaseletters=[a], signs=[:], digits=
 ```
 Przykład 2:
 ```bash
-dane wejściowe: 12883bZbb.Aaaa---;;
-dane wyjściowe: {uppercaseletters=[Z, A], lowercaseletters=[b, b, b, a, a, a], signs=[., -, -, -], digits=[1, 2, 8, 8, 3]}
+dane wejściowe: 12883bZbb.Aaaa-->=-777111
+dane wyjściowe: {uppercaseletters=[Z, A], lowercaseletters=[b, b, b, a, a, a], signs=[., -, -, >, =, -], digits=[1, 2, 8, 8, 3, 7, 7, 7, 1, 1, 1]}
 ```
