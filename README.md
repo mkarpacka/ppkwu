@@ -20,8 +20,13 @@ dane wyjściowe: 54321
 /api/recognize/{characters}
 ```
 Funkcjonalność rozpoznawania podanych w parametrze znaków. Jako parametr {characters} podajemy ciąg znaków. W odpowiedzi otrzymujemy cztery listy: {uppercaseletters=[], lowercaseletters=[], signs=[], digits=[]} w postaci String. W nawiasach kwadratowych zostają wpisane znaki, które odpowiadają danej kategorii. Możemy poznać, które z podanych znaków były małymi literami, wielkimi literami, liczbami oraz pozostałymi znakami.
-Przykład:
+Przykład 1:
 ```bash
 dane wejściowe: aA1:
 dane wyjściowe: {uppercaseletters=[A], lowercaseletters=[a], signs=[:], digits=[1]}
+```
+Przykład 2:
+```bash
+dane wejściowe: 12883bZbb.Aaaa---;;
+dane wyjściowe: {uppercaseletters=[Z, A], lowercaseletters=[b, b, b, a, a, a], signs=[., -, -, -], digits=[1, 2, 8, 8, 3]}
 ```
