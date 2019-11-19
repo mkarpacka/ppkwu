@@ -19,9 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CalendarService {
 
-    public int month = 11;
-
-    public Ical downloadWeeiaPage() {
+    public Ical downloadWeeiaPage(int monthNum) {
         Document doc = null;
 
         try {
@@ -34,9 +32,6 @@ public class CalendarService {
         Elements day = active.select("a");
         Elements events = active.select(".calendar-text");
 
-        Date date = new Date();
-        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        month = localDate.getMonthValue();
 
         List<String> days = new ArrayList<>();
         List<String> eventName = new ArrayList<>();
@@ -50,7 +45,7 @@ public class CalendarService {
         }
 
         Ical ical = new Ical();
-        ical.write(days, month, eventName);
+        ical.write(days, monthNum, eventName);
 
         return ical;
     }

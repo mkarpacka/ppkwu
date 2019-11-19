@@ -4,9 +4,10 @@ Zostaje pobrany obecny miesiąc.
 
 Przykład użycia:
 GET
-http://localhost:8080/api/get-weeia
+1.
+http://localhost:8080/api/weeia-calendar/current-month
 
-Pobrany zostaje plik get-weeia.ical. Jego zawartość to:
+Pobrany zostaje plik .ical. Jego zawartość to:
     BEGIN:VCALENDAR
     VERSION:2.0
     PRODID:-//bobbin v0.1//NONSGML iCal Writer//EN
@@ -35,3 +36,8 @@ Pobrany zostaje plik get-weeia.ical. Jego zawartość to:
     END:VCALENDAR
 
 Po otwarciu pliku za pomocą kalendarza możemy dodać do niego powyższe wydarzenia.
+
+2.
+weeia-calendar/next-month
+
+Pobrany zostaje plik .ical z kalendarzem na następny miesiąc. Po otwarciu pliku za pomocą kalendarza możemy dodać do niego powyższe wydarzenia.

@@ -11,6 +11,9 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/api/")
@@ -22,11 +25,24 @@ public class CalendarEndpoint {
         this.calendarService = calendarService;
     }
 
-    @GetMapping("get-weeia") public ResponseEntity<?> getWeeia() {
+    @GetMapping("weeia-calendar/current-month") public ResponseEntity<?> getCurrentCalendar() {
+        Date date = new Date();
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int month = localDate.getMonthValue();
+        calendarService.downloadWeeiaPage(month);
 
-        calendarService.downloadWeeiaPage();
+        File file = new File("calendar" + month + ".ics");
+        Resource fileSystemResource = new FileSystemResource(file);
+        return ResponseEntity.ok().contentType(MediaType.parseMediaType("text/calendar")).body(fileSystemResource);
+    }
 
-        File file = new File("calendar" + calendarService.month + ".ics");
+    @GetMapping("weeia-calendar/next-month") public ResponseEntity<?> getNextMontCalendar() {
+        Date date = new Date();
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int nextMonth = localDate.getMonthValue() + 1;
+        calendarService.downloadWeeiaPage(nextMonth);
+
+        File file = new File("calendar" + nextMonth + ".ics");
         Resource fileSystemResource = new FileSystemResource(file);
         return ResponseEntity.ok().contentType(MediaType.parseMediaType("text/calendar")).body(fileSystemResource);
     }
