@@ -1,0 +1,37 @@
+CalendarApi
+Api stworzone do pobierania kalendarza w formacie .ical ze strony http://www.weeia.p.lodz.pl/
+Zostaje pobrany obecny miesiąc.
+
+Przykład użycia:
+GET
+http://localhost:8080/api/get-weeia
+
+Pobrany zostaje plik get-weeia.ical. Jego zawartość to:
+    BEGIN:VCALENDAR
+    VERSION:2.0
+    PRODID:-//bobbin v0.1//NONSGML iCal Writer//EN
+    CALSCALE:GREGORIAN
+    METHOD:PUBLISH
+    BEGIN:VEVENT
+    DTSTART:20191104
+    DTEND:20191104
+    SUMMARY:First Step to Fields Medal
+    END:VEVENT
+    BEGIN:VEVENT
+    DTSTART:20191106
+    DTEND:20191106
+    SUMMARY:First Step to Success
+    END:VEVENT
+    BEGIN:VEVENT
+    DTSTART:20191108
+    DTEND:20191108
+    SUMMARY:First Step to Nobel Prize
+    END:VEVENT
+    BEGIN:VEVENT
+    DTSTART:20191115
+    DTEND:20191115
+    SUMMARY:Fascynująca Fizyka - poziom podstawowy
+    END:VEVENT
+    END:VCALENDAR
+
+Po otwarciu pliku za pomocą kalendarza możemy dodać do niego powyższe wydarzenia.
